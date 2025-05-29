@@ -1,26 +1,271 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.99 0.01 0);
+  --foreground: oklch(0.14 0.01 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.14 0.01 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.14 0.01 0);
+  
+  /* Bleu moderne inspiré d'Apple */
+  --primary: oklch(0.55 0.15 240);
+  --primary-foreground: oklch(0.98 0 0);
+  
+  --secondary: oklch(0.97 0.01 0);
+  --secondary-foreground: oklch(0.2 0.02 0);
+  --muted: oklch(0.97 0.01 0);
+  --muted-foreground: oklch(0.54 0.01 0);
+  --accent: oklch(0.97 0.01 0);
+  --accent-foreground: oklch(0.2 0.02 0);
+  
+  /* Rouge désaturé plus doux */
+  --destructive: oklch(0.65 0.15 22);
+  
+  /* Vert plus Apple-like */
+  --success: oklch(0.5 0.12 142);
+  
+  --border: oklch(0.92 0.01 0 / 15%);
+  --input: oklch(0.92 0.01 0 / 15%);
+  --ring: oklch(0.55 0.15 240 / 40%);
+  
+  /* Palette de couleurs pour les graphiques - style Apple */
+  --chart-1: oklch(0.55 0.15 240); /* Bleu principal */
+  --chart-2: oklch(0.65 0.15 190); /* Cyan */
+  --chart-3: oklch(0.45 0.15 270); /* Indigo */
+  --chart-4: oklch(0.7 0.12 200); /* Bleu clair */
+  --chart-5: oklch(0.75 0.1 220); /* Lavande */
+  
+  /* Couleurs pour la carte thermique */
+  --heat-1: oklch(0.85 0.15 90); /* Jaune doux */
+  --heat-2: oklch(0.8 0.18 70); /* Orange clair */
+  --heat-3: oklch(0.75 0.18 45); /* Orange */
+  --heat-4: oklch(0.65 0.15 22); /* Rouge désaturé */
+  
+  --sidebar: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0.14 0.01 0);
+  --sidebar-primary: oklch(0.55 0.15 240);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.97 0.01 0);
+  --sidebar-accent-foreground: oklch(0.2 0.02 0);
+  --sidebar-border: oklch(0.92 0.01 0 / 15%);
+  --sidebar-ring: oklch(0.7 0.01 0);
+  
+  /* Couleurs pour titres et sous-titres */
+  --title: oklch(0.3 0.06 240);
+  --subtitle: oklch(0.45 0.04 240);
+}
+
+.dark {
+  --background: oklch(0.15 0.01 0);
+  --foreground: oklch(0.98 0.01 0);
+  --card: oklch(0.2 0.01 0);
+  --card-foreground: oklch(0.98 0.01 0);
+  --popover: oklch(0.2 0.01 0);
+  --popover-foreground: oklch(0.98 0.01 0);
+  
+  /* Bleu plus lumineux pour le mode sombre */
+  --primary: oklch(0.7 0.15 240);
+  --primary-foreground: oklch(0.1 0.01 0);
+  
+  --secondary: oklch(0.24 0.01 0);
+  --secondary-foreground: oklch(0.98 0.01 0);
+  --muted: oklch(0.24 0.01 0);
+  --muted-foreground: oklch(0.7 0.01 0);
+  --accent: oklch(0.24 0.01 0);
+  --accent-foreground: oklch(0.98 0.01 0);
+  
+  /* Rouge plus lumineux pour le mode sombre */
+  --destructive: oklch(0.65 0.18 22);
+  
+  /* Vert plus lumineux pour le mode sombre */
+  --success: oklch(0.5 0.15 142);
+  
+  --border: oklch(1 0 0 / 20%);
+  --input: oklch(1 0 0 / 20%);
+  --ring: oklch(0.7 0.15 240 / 40%);
+  
+  /* Palette de couleurs pour les graphiques - mode sombre */
+  --chart-1: oklch(0.7 0.15 240); /* Bleu principal */
+  --chart-2: oklch(0.75 0.15 190); /* Cyan */
+  --chart-3: oklch(0.6 0.15 270); /* Indigo */
+  --chart-4: oklch(0.8 0.12 200); /* Bleu clair */
+  --chart-5: oklch(0.85 0.1 220); /* Lavande */
+  
+  /* Couleurs pour la carte thermique - mode sombre */
+  --heat-1: oklch(0.75 0.15 90); /* Jaune doux */
+  --heat-2: oklch(0.7 0.18 70); /* Orange clair */
+  --heat-3: oklch(0.65 0.18 45); /* Orange */
+  --heat-4: oklch(0.6 0.2 22); /* Rouge plus vif */
+  
+  --sidebar: oklch(0.2 0.01 0);
+  --sidebar-foreground: oklch(0.98 0.01 0);
+  --sidebar-primary: oklch(0.7 0.15 240);
+  --sidebar-primary-foreground: oklch(0.98 0.01 0);
+  --sidebar-accent: oklch(0.24 0.01 0);
+  --sidebar-accent-foreground: oklch(0.98 0.01 0);
+  --sidebar-border: oklch(1 0 0 / 20%);
+  --sidebar-ring: oklch(0.56 0.01 0);
+  
+  /* Couleurs pour titres et sous-titres - mode sombre */
+  --title: oklch(0.8 0.06 240);
+  --subtitle: oklch(0.7 0.04 240);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300 ease-in-out;
+  }
+  
+  /* Typographie style Apple */
+  h1 {
+    @apply font-semibold tracking-tight text-[var(--title)];
+  }
+  h2, h3 {
+    @apply font-medium tracking-tight text-[var(--subtitle)];
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Classes personnalisées pour la grille Heatmap */
+.grid-cols-25 {
+  grid-template-columns: auto repeat(24, 1fr);
+}
+
+/* Styles pour les cartes */
+.card-elevated {
+  @apply bg-card rounded-xl border border-border/10 shadow-[0_2px_10px_rgba(0,0,0,0.02)] dark:shadow-[0_2px_10px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_4px_16px_rgba(0,0,0,0.15)] transition-all duration-300 ease-in-out;
+}
+
+.card-hover {
+  @apply hover:shadow-lg hover:shadow-primary/5 hover:border-primary/20 hover:-translate-y-0.5 transition-all duration-300;
+}
+
+/* Animation pour les badges et éléments interactifs */
+.badge-pulse {
+  animation: badge-pulse 2s infinite;
+}
+
+@keyframes badge-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+/* Styles pour les sparklines */
+.sparkline {
+  height: 30px;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: all 0.3s ease;
+}
+
+/* Animation d'apparition progressive */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Délais d'animation pour les éléments en cascade */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* Styles pour les tooltip custom */
+.custom-tooltip {
+  @apply bg-popover text-popover-foreground rounded-lg shadow-md p-2.5 border border-border text-xs font-medium;
+  backdrop-filter: blur(8px);
+}
+
+.theme-toggle-button {
+  @apply fixed top-4 right-4 z-50;
+}
+
+/* Styles pour la heatmap */
+.heatmap-cell {
+  @apply rounded-md transition-all duration-200 ease-out;
+}
+
+/* Styles pour les pill badges */
+.status-pill {
+  @apply px-2 py-0.5 rounded-full text-xs font-medium transition-all;
+}
+
+/* Style spécifique pour les cartes KPI */
+.kpi-card {
+  @apply p-5 overflow-hidden relative bg-gradient-to-br from-background to-card transition-all duration-300;
+}
+
+/* Styles pour les points de données */
+.data-point {
+  @apply transition-all duration-300 hover:scale-110;
+}
+
+/* Styles pour les graphiques */
+.chart-container {
+  @apply p-1 rounded-lg bg-card/50 dark:bg-card/30 backdrop-blur-sm;
 }
