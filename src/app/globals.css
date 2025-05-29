@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -44,122 +48,102 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-:root {
-  --radius: 0.75rem;
-  --background: oklch(0.99 0.01 0);
-  --foreground: oklch(0.14 0.01 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.14 0.01 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.14 0.01 0);
-  
-  /* Bleu moderne inspiré d'Apple */
-  --primary: oklch(0.55 0.15 240);
-  --primary-foreground: oklch(0.98 0 0);
-  
-  --secondary: oklch(0.97 0.01 0);
-  --secondary-foreground: oklch(0.2 0.02 0);
-  --muted: oklch(0.97 0.01 0);
-  --muted-foreground: oklch(0.54 0.01 0);
-  --accent: oklch(0.97 0.01 0);
-  --accent-foreground: oklch(0.2 0.02 0);
-  
-  /* Rouge désaturé plus doux */
-  --destructive: oklch(0.65 0.15 22);
-  
-  /* Vert plus Apple-like */
-  --success: oklch(0.5 0.12 142);
-  
-  --border: oklch(0.92 0.01 0 / 15%);
-  --input: oklch(0.92 0.01 0 / 15%);
-  --ring: oklch(0.55 0.15 240 / 40%);
-  
-  /* Palette de couleurs pour les graphiques - style Apple */
-  --chart-1: oklch(0.55 0.15 240); /* Bleu principal */
-  --chart-2: oklch(0.65 0.15 190); /* Cyan */
-  --chart-3: oklch(0.45 0.15 270); /* Indigo */
-  --chart-4: oklch(0.7 0.12 200); /* Bleu clair */
-  --chart-5: oklch(0.75 0.1 220); /* Lavande */
-  
-  /* Couleurs pour la carte thermique */
-  --heat-1: oklch(0.85 0.15 90); /* Jaune doux */
-  --heat-2: oklch(0.8 0.18 70); /* Orange clair */
-  --heat-3: oklch(0.75 0.18 45); /* Orange */
-  --heat-4: oklch(0.65 0.15 22); /* Rouge désaturé */
-  
-  --sidebar: oklch(0.98 0 0);
-  --sidebar-foreground: oklch(0.14 0.01 0);
-  --sidebar-primary: oklch(0.55 0.15 240);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.97 0.01 0);
-  --sidebar-accent-foreground: oklch(0.2 0.02 0);
-  --sidebar-border: oklch(0.92 0.01 0 / 15%);
-  --sidebar-ring: oklch(0.7 0.01 0);
-  
-  /* Couleurs pour titres et sous-titres */
-  --title: oklch(0.3 0.06 240);
-  --subtitle: oklch(0.45 0.04 240);
-}
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    
+    /* Bleu moderne inspiré d'Apple */
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    
+    /* Rouge désaturé plus doux */
+    --destructive: 0 72.22% 50.59%;
+    --destructive-foreground: 210 40% 98%;
+    
+    /* Vert plus Apple-like */
+    --success: 142 70% 45%;
+    --success-foreground: 210 40% 98%;
+    
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    
+    /* Palette de couleurs pour les graphiques - style Apple */
+    --chart-1: 221.2 83.2% 53.3%; /* Bleu principal */
+    --chart-2: 190 95% 50%; /* Cyan */
+    --chart-3: 270 95% 50%; /* Indigo */
+    --chart-4: 200 95% 50%; /* Bleu clair */
+    --chart-5: 220 70% 50%; /* Lavande */
+    
+    /* Couleurs pour la carte thermique */
+    --heat-1: 48 96% 53%; /* Jaune doux */
+    --heat-2: 25 95% 53%; /* Orange clair */
+    --heat-3: 21 90% 48%; /* Orange */
+    --heat-4: 0 72% 50%; /* Rouge */
+  }
 
-.dark {
-  --background: oklch(0.15 0.01 0);
-  --foreground: oklch(0.98 0.01 0);
-  --card: oklch(0.2 0.01 0);
-  --card-foreground: oklch(0.98 0.01 0);
-  --popover: oklch(0.2 0.01 0);
-  --popover-foreground: oklch(0.98 0.01 0);
-  
-  /* Bleu plus lumineux pour le mode sombre */
-  --primary: oklch(0.7 0.15 240);
-  --primary-foreground: oklch(0.1 0.01 0);
-  
-  --secondary: oklch(0.24 0.01 0);
-  --secondary-foreground: oklch(0.98 0.01 0);
-  --muted: oklch(0.24 0.01 0);
-  --muted-foreground: oklch(0.7 0.01 0);
-  --accent: oklch(0.24 0.01 0);
-  --accent-foreground: oklch(0.98 0.01 0);
-  
-  /* Rouge plus lumineux pour le mode sombre */
-  --destructive: oklch(0.65 0.18 22);
-  
-  /* Vert plus lumineux pour le mode sombre */
-  --success: oklch(0.5 0.15 142);
-  
-  --border: oklch(1 0 0 / 20%);
-  --input: oklch(1 0 0 / 20%);
-  --ring: oklch(0.7 0.15 240 / 40%);
-  
-  /* Palette de couleurs pour les graphiques - mode sombre */
-  --chart-1: oklch(0.7 0.15 240); /* Bleu principal */
-  --chart-2: oklch(0.75 0.15 190); /* Cyan */
-  --chart-3: oklch(0.6 0.15 270); /* Indigo */
-  --chart-4: oklch(0.8 0.12 200); /* Bleu clair */
-  --chart-5: oklch(0.85 0.1 220); /* Lavande */
-  
-  /* Couleurs pour la carte thermique - mode sombre */
-  --heat-1: oklch(0.75 0.15 90); /* Jaune doux */
-  --heat-2: oklch(0.7 0.18 70); /* Orange clair */
-  --heat-3: oklch(0.65 0.18 45); /* Orange */
-  --heat-4: oklch(0.6 0.2 22); /* Rouge plus vif */
-  
-  --sidebar: oklch(0.2 0.01 0);
-  --sidebar-foreground: oklch(0.98 0.01 0);
-  --sidebar-primary: oklch(0.7 0.15 240);
-  --sidebar-primary-foreground: oklch(0.98 0.01 0);
-  --sidebar-accent: oklch(0.24 0.01 0);
-  --sidebar-accent-foreground: oklch(0.98 0.01 0);
-  --sidebar-border: oklch(1 0 0 / 20%);
-  --sidebar-ring: oklch(0.56 0.01 0);
-  
-  /* Couleurs pour titres et sous-titres - mode sombre */
-  --title: oklch(0.8 0.06 240);
-  --subtitle: oklch(0.7 0.04 240);
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 40% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 40% 98%;
+    
+    /* Bleu plus lumineux pour le mode sombre */
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    
+    /* Rouge plus lumineux pour le mode sombre */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    /* Vert plus lumineux pour le mode sombre */
+    --success: 142 70% 45%;
+    --success-foreground: 210 40% 98%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+    
+    /* Palette de couleurs pour les graphiques - mode sombre */
+    --chart-1: 217.2 91.2% 59.8%; /* Bleu principal */
+    --chart-2: 190 95% 60%; /* Cyan */
+    --chart-3: 270 95% 60%; /* Indigo */
+    --chart-4: 200 95% 60%; /* Bleu clair */
+    --chart-5: 220 70% 60%; /* Lavande */
+    
+    /* Couleurs pour la carte thermique - mode sombre */
+    --heat-1: 48 96% 53%; /* Jaune doux */
+    --heat-2: 25 95% 53%; /* Orange clair */
+    --heat-3: 21 90% 48%; /* Orange */
+    --heat-4: 0 62% 50%; /* Rouge plus vif */
+  }
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
   body {
     @apply bg-background text-foreground transition-colors duration-300 ease-in-out;
@@ -167,32 +151,82 @@
   
   /* Typographie style Apple */
   h1 {
-    @apply font-semibold tracking-tight text-[var(--title)];
+    @apply font-semibold tracking-tight;
   }
   h2, h3 {
-    @apply font-medium tracking-tight text-[var(--subtitle)];
+    @apply font-medium tracking-tight;
   }
 }
 
-/* Classes personnalisées pour la grille Heatmap */
-.grid-cols-25 {
-  grid-template-columns: auto repeat(24, 1fr);
-}
+@layer components {
+  /* Classes personnalisées pour la grille Heatmap */
+  .grid-cols-25 {
+    grid-template-columns: auto repeat(24, 1fr);
+  }
 
-/* Styles pour les cartes */
-.card-elevated {
-  @apply bg-card rounded-xl border border-border/10 shadow-[0_2px_10px_rgba(0,0,0,0.02)] dark:shadow-[0_2px_10px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_4px_16px_rgba(0,0,0,0.15)] transition-all duration-300 ease-in-out;
-}
+  /* Styles pour les cartes */
+  .card-elevated {
+    @apply bg-card rounded-xl border border-border/10 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out;
+  }
 
-.card-hover {
-  @apply hover:shadow-lg hover:shadow-primary/5 hover:border-primary/20 hover:-translate-y-0.5 transition-all duration-300;
+  .card-hover {
+    @apply hover:shadow-lg hover:border-primary/20 hover:-translate-y-0.5 transition-all duration-300;
+  }
+
+  /* Animation pour les badges et éléments interactifs */
+  .badge-pulse {
+    animation: badge-pulse 2s infinite;
+  }
+
+  /* Styles pour les graphiques */
+  .sparkline {
+    @apply stroke-current fill-none;
+  }
+
+  .sparkline-area {
+    @apply fill-current opacity-20;
+  }
+
+  .fade-in {
+    @apply animate-fade-in;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  /* Tooltip personnalisé */
+  .custom-tooltip {
+    @apply bg-popover text-popover-foreground p-2 rounded-md shadow-md border;
+  }
+
+  .theme-toggle-button {
+    @apply relative rounded-full p-2 transition-colors hover:bg-accent;
+  }
+
+  .heatmap-cell {
+    @apply transition-all duration-200 hover:scale-110 cursor-pointer rounded-sm;
+  }
+
+  .status-pill {
+    @apply inline-flex items-center rounded-full px-2 py-1 text-xs font-medium;
+  }
+
+  .kpi-card {
+    @apply relative overflow-hidden rounded-xl bg-gradient-to-br from-background to-muted/50;
+  }
+
+  .data-point {
+    @apply transition-all duration-200 hover:scale-105;
+  }
+
+  .chart-container {
+    @apply relative w-full h-full overflow-hidden;
+  }
 }
 
 /* Animation pour les badges et éléments interactifs */
-.badge-pulse {
-  animation: badge-pulse 2s infinite;
-}
-
 @keyframes badge-pulse {
   0% {
     transform: scale(1);
@@ -208,32 +242,11 @@
   }
 }
 
-/* Styles pour les sparklines */
-.sparkline {
-  height: 30px;
-  stroke-width: 1.5;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: all 0.3s ease;
-}
-
 /* Animation d'apparition progressive */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 0.8s ease forwards;
-}
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-/* Délais d'animation pour les éléments en cascade */
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
-.delay-4 { animation-delay: 0.4s; }
 
 /* Styles pour les tooltip custom */
 .custom-tooltip {
